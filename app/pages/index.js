@@ -19,7 +19,9 @@ export default function Home(props) {
 		fetchData()
 	}
 
-	useEffect(fetchData, [])
+	useEffect(() => {
+		fetchData()
+	}, [])
 
 	return (
 		<div>
