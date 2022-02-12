@@ -5,11 +5,16 @@ export default function Home(props) {
 	const [ipData, setIpData] = useState()
 
 	async function fetchData() {
+		/* IP tanımlama server tarafında yapılırsa, server'ın ip'si geliyor *facepalm*
+		 Kod client tarafına taşındı ama bu kısım yorum olarak bırakıldı*/
+		/*
 		// Böyle adres sonuna '?' koyarak mı yapılıyor bu işler?
-		const response = await fetch(`/api/ip_data?ipAdd=${ipAdd}`, {
-			method: "GET",
-			headers: { "Content-Type": "application/json" },
-		})
+		// const response = await fetch(`/api/ip_data?ipAdd=${ipAdd}`, {
+		// 	method: "GET",
+		// 	headers: { "Content-Type": "application/json" },
+		// })
+		*/
+		const response = await fetch(`http://ipwhois.app/json/${ipAdd}`)
 		setIpData(await response.json())
 	}
 
