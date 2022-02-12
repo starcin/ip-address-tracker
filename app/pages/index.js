@@ -14,7 +14,7 @@ export default function Home(props) {
 		// 	headers: { "Content-Type": "application/json" },
 		// })
 		*/
-		const response = await fetch(`http://ipwhois.app/json/${ipAdd}`)
+		const response = await fetch(`https://ipwhois.app/json/${ipAdd}`)
 		setIpData(await response.json())
 	}
 
