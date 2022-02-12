@@ -35,21 +35,21 @@ export default function Home(props) {
 				<form className="form" onSubmit={onIpSubmit}>
 					<input
 						type="text"
-						placeholder={ipData ? ipData.ip : "Leave empty for current IP"}
+						placeholder={ipData ? ipData.ip : "Loading"}
 						onChange={(e) => setIpAdd(e.target.value)}
 					/>
 					<input type="submit" value="&#9002;"></input>
 				</form>
-
 				{ipData ? (
 					<iframe
+						className="map"
 						// style={{ width: 100 + "%", height: 50 + "vh", border: 0 }}
 						loading="lazy"
 						src={`https://www.google.com/maps/embed/v1/view?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&center=${ipData.latitude},${ipData.longitude}&zoom=12`}
 						// src={`https://www.google.com/maps/embed/v1/view?key=${process.env.GOOGLE_MAPS_API_KEY}&center=39,37&zoom=12`}
 					></iframe>
 				) : (
-					<h2>... LOADING ...</h2>
+					<h2 className="map">... LOADING MAP ...</h2>
 				)}
 				{ipData && (
 					<div className="info-box">

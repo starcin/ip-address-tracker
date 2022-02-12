@@ -96,7 +96,7 @@ main {
 		}
 	}
 
-	iframe {
+	.map {
 		grid-column: 1/4;
 		grid-row: 3/5;
 		width: 100%;
@@ -145,7 +145,7 @@ main {
 				padding-left: 1.2rem;
 			}
 		}
-		iframe {
+		.map {
 			grid-column: 1 / 5;
 			grid-row: 3/5;
 		}
