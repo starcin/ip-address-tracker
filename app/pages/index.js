@@ -28,7 +28,7 @@ export default function Home(props) {
 				<form className="form" onSubmit={onIpSubmit}>
 					<input
 						type="text"
-						placeholder={ipData ? ipData.IPv4 : "Leave empty for current IP"}
+						placeholder={ipData ? ipData.query : "Leave empty for current IP"}
 						onChange={(e) => setIpAdd(e.target.value)}
 					/>
 					<input type="submit" value="&#9002;"></input>
@@ -38,7 +38,7 @@ export default function Home(props) {
 					<iframe
 						// style={{ width: 100 + "%", height: 50 + "vh", border: 0 }}
 						loading="lazy"
-						src={`https://www.google.com/maps/embed/v1/view?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&center=${ipData.latitude},${ipData.longitude}&zoom=12`}
+						src={`https://www.google.com/maps/embed/v1/view?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&center=${ipData.lat},${ipData.lon}&zoom=12`}
 						// src={`https://www.google.com/maps/embed/v1/view?key=${process.env.GOOGLE_MAPS_API_KEY}&center=39,37&zoom=12`}
 					></iframe>
 				) : (
@@ -48,21 +48,21 @@ export default function Home(props) {
 					<div className="info-box">
 						<div className="info-item">
 							<h2>IP ADDRESS </h2>
-							<p>{ipData.IPv4}</p>
+							<p>{ipData.query}</p>
 						</div>
 						<div className="info-item">
 							<h2>LOCATION</h2>
 							<p>
-								{ipData.city},{ipData.country_code} {ipData.postal}
+								{ipData.city},{ipData.countryCode} {ipData.zip}
 							</p>
 						</div>
 						<div className="info-item">
 							<h2>TIMEZONE</h2>
-							<p>-timezone-here-</p>
+							<p>{ipData.timezone}</p>
 						</div>
 						<div className="info-item">
 							<h2>ISP</h2>
-							<p>{ipData.IPv4}</p>
+							<p>{ipData.isp}</p>
 						</div>
 					</div>
 				)}
